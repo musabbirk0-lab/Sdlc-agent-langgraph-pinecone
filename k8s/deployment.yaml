@@ -1,1 +1,25 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+name: sdlc-agent
+spec:
+replicas: 1
+selector:
+matchLabels:
+app: sdlc-agent
+template:
+metadata:
+labels:
+app: sdlc-agent
+spec:
+containers:
+- name: sdlc-agent
+image: sdlc-agent:latest
+ports:
+- containerPort: 8000
+env:
+- name: PINECONE_API_KEY
+valueFrom:
+secretKeyRef:
+name: sdlc-secrets
+key: pinecone_api_key
