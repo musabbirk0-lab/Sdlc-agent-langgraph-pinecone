@@ -1,1 +1,8 @@
-
+fastapi
+uvicorn[standard]
+langgraph
+pinecone-client
+openai
+pydantic
+requests
+python-dotenv
